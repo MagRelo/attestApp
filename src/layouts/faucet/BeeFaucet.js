@@ -54,7 +54,8 @@ class BeeFaucet extends Component {
           // Put 'address' from 'requestCredentials() response here, forgot how to grab the state...
           generateUniquenessAttestation("2ovoofGYUpq6GF6JkN64qgB4hvfRNvyanuv")
 
-        }}>
+          }}>
+
           Create Attestation for logged in user
         </button>
         <br/>

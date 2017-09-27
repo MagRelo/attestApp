@@ -1,5 +1,18 @@
 import React, { Component } from 'react'
 
+// UI Components
+import {HiddenOnlyAuth, VisibleOnlyAuth} from '../../../util/wrappers.js'
+import LoginButtonContainer from '../../ui/loginbutton/LoginButtonContainer'
+import LogoutButtonContainer from '../../ui/logoutbutton/LogoutButtonContainer'
+
+const attestFunction = (() => {
+  return generateUniquenessAttestation("2ovoofGYUpq6GF6JkN64qgB4hvfRNvyanuv")
+})
+
+
+import {generateUniquenessAttestation} from "../../../web3/attestationBridge";
+
+
 class Profile extends Component {
   constructor(props, { authData }) {
     super(props)
@@ -10,14 +23,42 @@ class Profile extends Component {
     return(
       <main className="container">
         <div className="pure-g">
-          <div className="pure-u-1-1">
-            <h1>Profile</h1>
-            <img className="profile-logo" src={'https://ipfs.io' + this.props.authData.image.contentUrl}></img>
-            <p><strong>Name: </strong>{this.props.authData.name}</p>
-            <p><strong>Phone: </strong>{this.props.authData.phone}</p>
-            <p><strong>Country: </strong>{this.props.authData.country}</p>
-            <hr></hr>
-            <p>Change these details in UPort to see them reflected here.</p>
+          <div className="pure-u-1-2">
+
+            <h2> Officials </h2>
+            <h3>Instructions:</h3>
+            <h4>1. Verify that ID is correct.</h4>
+
+            <h4>2. Verify that uPort ID matches:</h4>
+            <ul>
+              <li>Picture</li>
+              <li>Name</li>
+              <li>Country</li>
+            </ul>
+
+            <h4>3. Create Attestation.</h4>
+            <div style={{'textAlign': 'center'}}>
+              <button className="pure-button pure-button-primary button-xlarge" onClick={attestFunction}> Create Attestation </button>
+            </div>
+            <br></br>
+            <em> *Applicant will get a notification on their phone when the attestation is complete.</em>
+
+            <h4>4. Have applicant logout</h4>
+
+          </div>
+          <div className="pure-u-1-2">
+
+            <h2> Applicant uPort profile </h2>
+            <div className="applicant-section">
+              <img className="profile-logo" src={'https://ipfs.io' + this.props.authData.image.contentUrl}></img>
+              <p><strong>Name: </strong>{this.props.authData.name}</p>
+              <p><strong>Phone: </strong>{this.props.authData.phone}</p>
+              <p><strong>Country: </strong>{this.props.authData.country}</p>
+              <LogoutButtonContainer />
+            </div>
+
+
+
           </div>
         </div>
       </main>

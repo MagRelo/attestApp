@@ -1,8 +1,13 @@
 import React from 'react'
 
+import uPortLogo from '../../../img/uport-logo.svg'
+
 const LogoutButton = ({ onLogoutUserClick }) => {
   return(
-    <a href="#" className="pure-menu-link" onClick={(event) => onLogoutUserClick(event)}>Logout</a>
+    <button className="pure-button pure-button-primary uport-logo" onClick={(event) => onLogoutUserClick(event)}>
+      <img className="uport-logo" src={uPortLogo} alt="UPort Logo" />
+      Logout
+    </button>
   )
 }
 

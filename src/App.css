@@ -13,12 +13,12 @@ dark orange: D9791A
 body,
 .pure-g [class*=pure-u] {
   font-family: 'Open Sans', sans-serif;
-  background: #FFFDE0;
+  background: #E4E1E1;
 }
 
 h1, h2, h3 {
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
-  color: #D9791A;
+  color: #143E56;
 }
 
 pre {
@@ -32,11 +32,10 @@ pre {
   box-sizing: border-box;
   width: 100%;
   padding: 45px 20px;
-  text-align: center;
 }
 
 .pure-button-primary {
-  background-color: #0c1a2b;
+  background-color: #143E56;
 }
 
 .pure-button-primary:hover {
@@ -52,7 +51,7 @@ pre {
 .navbar {
   position: fixed;
   padding: 5px;
-  background: #FCD036;
+  background: #BEBDBD;
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
 }
 
@@ -63,7 +62,7 @@ pre {
 .navbar a:active,
 .navbar a:focus,
 .navbar a:hover {
-  background: #FAB22C;
+  background: #BEBDBD;
 }
 
 .navbar .pure-menu-heading {
@@ -81,15 +80,28 @@ pre {
 }
 
 /* HOME */
+.banner{
+  text-align: center;
+}
 .logo{
   max-width: 100%;
-  margin-top: 1em;
+  margin-top: 3em;
+  max-height: 100px;
+}
+
+
+/* PROFILE */
+.applicant-section{
+  text-align: center;
+  border: solid 1px darkgray;
+  padding: 2em 1em 1em 1em;
+  border-radius: 1em;
 }
 
 .profile-logo{
   max-height: 160px;
   border-radius: 80px;
-  border: 2px solid #E88523;
+  border: 2px solid #143E56;
 }
 
 /*Faucet*/

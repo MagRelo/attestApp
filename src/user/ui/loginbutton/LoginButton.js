@@ -5,11 +5,13 @@ import uPortLogo from '../../../img/uport-logo.svg'
 
 const LoginButton = ({ onLoginUserClick }) => {
   return(
-    <a href="#"
-      className="pure-button"
+    <button
+      className="pure-button pure-button-primary uport-logo"
       onClick={(event) => onLoginUserClick(event)}>
-      <img className="uport-logo" src={uPortLogo} alt="UPort Logo" />Login with UPort
-    </a>
+
+      <img className="uport-logo" src={uPortLogo} alt="uPort Logo" />
+      Login with uPort
+    </button>
   )
 }
 

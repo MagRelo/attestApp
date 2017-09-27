@@ -35,7 +35,7 @@ export function loginUser() {
 
       console.log("requestCredentials")
 
-      return
+      return browserHistory.push('/profile')
     })
   }
 }

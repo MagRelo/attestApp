@@ -20,6 +20,11 @@ class Profile extends Component {
   }
 
   render() {
+
+    const profileUrl = this.props.authData && this.props.authData.image ?
+      'https://ipfs.io' + this.props.authData.image.contentUrl :
+      'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'
+
     return(
       <main className="container">
         <div className="pure-g">
@@ -50,7 +55,7 @@ class Profile extends Component {
 
             <h2> Applicant uPort profile </h2>
             <div className="applicant-section">
-              <img className="profile-logo" src={'https://ipfs.io' + this.props.authData.image.contentUrl}></img>
+              <img className="profile-logo" src={profileUrl}></img>
               <p><strong>Name: </strong>{this.props.authData.name}</p>
               <p><strong>Phone: </strong>{this.props.authData.phone}</p>
               <p><strong>Country: </strong>{this.props.authData.country}</p>

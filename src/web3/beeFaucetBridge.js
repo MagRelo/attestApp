@@ -3,7 +3,7 @@ import {getWeb3} from "./getWeb3.js"
 import Contract from "truffle-contract"
 import BeeFaucet from "../../build/contracts/BeeFaucet.json"
 import MiniMeToken from "../../build/contracts/MiniMeToken.json"
-import {format as jwtFormat} from "../../utils/JwtFormatter.js"
+import {format as jwtFormat} from "../utils/JwtFormatter.js"
 
 export class BeeFaucetBridge {
 

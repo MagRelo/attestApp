@@ -5,10 +5,6 @@ import {HiddenOnlyAuth, VisibleOnlyAuth} from '../../../util/wrappers.js'
 import LoginButtonContainer from '../../ui/loginbutton/LoginButtonContainer'
 import LogoutButtonContainer from '../../ui/logoutbutton/LogoutButtonContainer'
 
-const attestFunction = (() => {
-  return generateUniquenessAttestation("2ovoofGYUpq6GF6JkN64qgB4hvfRNvyanuv")
-})
-
 
 import {generateUniquenessAttestation} from "../../../web3/attestationBridge";
 
@@ -43,7 +39,7 @@ class Profile extends Component {
 
             <h4>3. Create Attestation.</h4>
             <div style={{'textAlign': 'center'}}>
-              <button className="pure-button pure-button-primary button-xlarge" onClick={attestFunction}> Create Attestation </button>
+              <button className="pure-button pure-button-primary button-xlarge" onClick={(() => generateUniquenessAttestation(this.props.authData.address))}> Create Attestation </button>
             </div>
             <br></br>
             <em> *Applicant will get a notification on their phone when the attestation is complete.</em>

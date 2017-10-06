@@ -21,43 +21,53 @@ class Profile extends Component {
       'https://ipfs.io' + this.props.authData.image.contentUrl :
       'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'
 
+    const createAttestation = () => {
+        return generateUniquenessAttestation(this.props.authData.address)
+    }
+
     return(
       <main className="container">
         <div className="pure-g">
-          <div className="pure-u-1-2">
+          <div className="pure-u-lg-1-4"></div>
+          <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+            <div className="grid-pad">
 
-            <h2> Officials </h2>
-            <h3>Instructions:</h3>
-            <h4>1. Verify that ID is correct.</h4>
+              <h2> Officials </h2>
+              <h3>Instructions:</h3>
+              <h4>1. Verify that the applicant has a valid passport.</h4>
 
-            <h4>2. Verify that uPort ID matches:</h4>
-            <ul>
-              <li>Picture</li>
-              <li>Name</li>
-              <li>Country</li>
-            </ul>
+              <h4>2. Enter applicant's unique passport number, and click 'Create Attestation'.</h4>
+              <form className="pure-form pure-form-stacked">
 
-            <h4>3. Create Attestation.</h4>
-            <div style={{'textAlign': 'center'}}>
-              <button className="pure-button pure-button-primary button-xlarge" onClick={(() => generateUniquenessAttestation(this.props.authData.address))}> Create Attestation </button>
+                <fieldset>
+                  <label htmlFor="passport">Passport Number</label>
+                  <input id="passport" type="text" placeholder="Enter passport number"></input>
+                  <button className="pure-button pure-button-primary" onClick={createAttestation}> Create Attestation </button>
+                </fieldset>
+
+              </form>
+
+              <br></br>
+              <em> *Applicant will get a notification on their phone when the attestation is complete.</em>
+
+              <h4>4. Have applicant logout</h4>
+
+
             </div>
-            <br></br>
-            <em> *Applicant will get a notification on their phone when the attestation is complete.</em>
-
-            <h4>4. Have applicant logout</h4>
 
           </div>
-          <div className="pure-u-1-2">
+          <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+            <div className="grid-pad">
+              <h2> Applicant uPort profile </h2>
+              <div className="applicant-section">
+                <img className="profile-logo" src={profileUrl}></img>
+                <p><strong>Name: </strong>{this.props.authData.name}</p>
+                <p><strong>Phone: </strong>{this.props.authData.phone}</p>
+                <p><strong>Country: </strong>{this.props.authData.country}</p>
+                <LogoutButtonContainer />
+              </div>
 
-            <h2> Applicant uPort profile </h2>
-            <div className="applicant-section">
-              <img className="profile-logo" src={profileUrl}></img>
-              <p><strong>Name: </strong>{this.props.authData.name}</p>
-              <p><strong>Phone: </strong>{this.props.authData.phone}</p>
-              <p><strong>Country: </strong>{this.props.authData.country}</p>
-              <LogoutButtonContainer />
             </div>
-
 
 
           </div>

@@ -43,19 +43,24 @@ class Home extends Component {
             <hr></hr>
 
             <div className="pure-g">
-              <div className="pure-u-1-2">
+              <div className="pure-u-lg-1-4"></div>
+              <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
 
-                <h2> Officials: </h2>
-                <h3>Instructions</h3>
-                <ol>
-                  <li>Have the applicant sign in to uPort</li>
-                </ol>
+                <div className="grid-pad">
+                  <h2> Officials: </h2>
+                  <h3>Instructions</h3>
+                  <ol>
+                    <li>Have the applicant sign in to uPort</li>
+                  </ol>
+                </div>
+
 
               </div>
-              <div className="pure-u-1-2">
-
-                <h2> Applicants: </h2>
-                <OnlyGuestDisplay_applicants/>
+              <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <div className="grid-pad">
+                  <h2> Applicants: </h2>
+                  <OnlyGuestDisplay_applicants/>
+                </div>
             </div>
             </div>
           </div>

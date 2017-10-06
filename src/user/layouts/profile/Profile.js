@@ -57,8 +57,8 @@ class Profile extends Component {
     return(
       <main className="container">
         <div className="pure-g">
-          <div className="pure-u-lg-1-4"></div>
-          <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+          <div className="pure-u-xl-1-8"></div>
+          <div className="pure-u-1 pure-u-md-1-2 pure-u-xl-3-8">
             <div className="grid-pad">
 
               <h2> Officials </h2>
@@ -105,7 +105,7 @@ class Profile extends Component {
             </div>
 
           </div>
-          <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+          <div className="pure-u-1 pure-u-md-1-2 pure-u-xl-3-8">
             <div className="grid-pad">
               <h2> Applicant uPort profile </h2>
               <div className="applicant-section">

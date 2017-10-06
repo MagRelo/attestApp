@@ -21,7 +21,8 @@ class Profile extends Component {
       'https://ipfs.io' + this.props.authData.image.contentUrl :
       'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'
 
-    const createAttestation = () => {
+    const createAttestation = (event) => {
+        event.preventDefault();
         return generateUniquenessAttestation(this.props.authData.address)
     }
 
@@ -38,14 +39,13 @@ class Profile extends Component {
 
               <h4>2. Enter applicant's unique passport number, and click 'Create Attestation'.</h4>
               <form className="pure-form pure-form-stacked">
-
                 <fieldset>
                   <label htmlFor="passport">Passport Number</label>
                   <input id="passport" type="text" placeholder="Enter passport number"></input>
-                  <button className="pure-button pure-button-primary" onClick={createAttestation}> Create Attestation </button>
                 </fieldset>
-
+                <button className="pure-button pure-button-primary" type="button" onClick={()=>createAttestation(event)}> Create Attestation </button>
               </form>
+
 
               <br></br>
               <em> *Applicant will get a notification on their phone when the attestation is complete.</em>

@@ -18,7 +18,7 @@ import {uport}from "../util/connectors.js";
 // If a chain is running on the default port: 8545 (as specified in the Hive-Commons/truffle.js file) the contracts should deploy.
 export const generateUniquenessAttestation = (address) => {
 
-    uport.attestCredentials({
+    return uport.attestCredentials({
         sub: address,
         claim: {
             "Uniqueness": "Is Unique / Hash of their passport number"

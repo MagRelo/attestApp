@@ -13,6 +13,33 @@ class Profile extends Component {
   constructor(props, { authData }) {
     super(props)
     authData = this.props
+    this.state = {
+      passport: '',
+      attestLoading: false,
+      attestSuccess: false
+    }
+  }
+
+  handleChange(event) {
+    this.setState({passport: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    this.setState({attestLoading: true});
+
+    if (this.state.passport.length < 2)
+    {
+      return alert('Please enter passport number')
+    }
+
+    generateUniquenessAttestation(this.props.authData.address)
+      .then((response)=>{
+        this.setState({attestSuccess: response === 'ok'});
+        this.setState({attestLoading: false});
+        this.setState({passport: ''});
+      })
+
   }
 
   render() {
@@ -23,6 +50,7 @@ class Profile extends Component {
 
     const createAttestation = (event) => {
         event.preventDefault();
+        this.setState({passport: ''});
         return generateUniquenessAttestation(this.props.authData.address)
     }
 
@@ -38,20 +66,41 @@ class Profile extends Component {
               <h4>1. Verify that the applicant has a valid passport.</h4>
 
               <h4>2. Enter applicant's unique passport number, and click 'Create Attestation'.</h4>
-              <form className="pure-form pure-form-stacked">
+
+              <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit.bind(this)}>
                 <fieldset>
                   <label htmlFor="passport">Passport Number</label>
-                  <input id="passport" type="text" placeholder="Enter passport number"></input>
+                  <input id="passport"
+                    type="text"
+                    value={this.state.passport}
+                    onChange={this.handleChange.bind(this)}
+                    placeholder="Enter passport number"
+                    disabled={this.state.attestLoading || this.state.attestSuccess}>
+                  </input>
                 </fieldset>
-                <button className="pure-button pure-button-primary" type="button" onClick={()=>createAttestation(event)}> Create Attestation </button>
+                <button className="pure-button pure-button-primary"
+                  type="submit"> Create Attestation
+                </button>
+
+                {this.state.attestLoading ?
+
+                  <span>
+                    <div className="loader"/>
+                    <label className="loading-text">Loading (may take several minutes)... </label>
+                  </span>
+
+                : null}
+                {this.state.attestSuccess ?
+
+                  <span>
+                    <label className="loading-text">Success!</label>
+                  </span>
+
+                : null}
+
               </form>
 
-
-              <br></br>
-              <em> *Applicant will get a notification on their phone when the attestation is complete.</em>
-
-              <h4>4. Have applicant logout</h4>
-
+              <h4>3. Have applicant logout</h4>
 
             </div>
 

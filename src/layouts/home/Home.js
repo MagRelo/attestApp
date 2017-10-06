@@ -13,6 +13,10 @@ import LogoutButtonContainer from '../../user/ui/logoutbutton/LogoutButtonContai
 import officialSeal from '../../img/Imperial_Seal.png'
 
 class Home extends Component {
+  constructor(props, { authData }) {
+    super(props)
+    authData = this.props
+  }
 
   render() {
 
@@ -21,13 +25,6 @@ class Home extends Component {
         <LoginButtonContainer/>
       </div>
     )
-
-    const OnlyAuthDisplay_officals = VisibleOnlyAuth(() =>
-      <div>
-        <button className="pure-button pure-button-primary button-xlarge" onClick={attestFunction}> Create Attestation </button>
-      </div>
-    )
-
 
     return (
       <main className="container">
@@ -54,15 +51,15 @@ class Home extends Component {
                   </ol>
                 </div>
 
-
               </div>
               <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <div className="grid-pad">
                   <h2> Applicants: </h2>
                   <OnlyGuestDisplay_applicants/>
                 </div>
+              </div>
             </div>
-            </div>
+
           </div>
         </div>
       </main>

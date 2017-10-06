@@ -37,7 +37,6 @@ class Profile extends Component {
       .then((response)=>{
         this.setState({attestSuccess: response === 'ok'});
         this.setState({attestLoading: false});
-        this.setState({passport: ''});
       })
 
   }
